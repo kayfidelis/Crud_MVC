@@ -1,0 +1,54 @@
+﻿
+@model List<bModel.Usuario>
+
+@{
+    ViewBag.Title = "Usuários";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Usuários cadastrados</h2>
+
+<p>
+    @Html.ActionLink("Novo Usuário", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Código
+        </th>
+        <th>
+            Nome
+        </th>
+        <th>
+            Cargo
+        </th>
+        <th>
+            Nascimento
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var usuario in Model)
+    {
+        <tr>
+            <td>
+                @usuario.IdUsu
+            </td>
+            <td>
+                @usuario.NomeUsu
+            </td>
+            <td>
+                @usuario.Cargo
+            </td>
+            <td>
+                @usuario.DataNasc.ToString("dd/MM/yyyy")
+            </td>
+
+            <td>
+                @Html.ActionLink("Atualizar", "Edit", new { id = usuario.IdUsu }) |
+                @Html.ActionLink("Detalhes", "Details", new { id = usuario.IdUsu }) |
+                @Html.ActionLink("Apagar", "Delete", new { id = usuario.IdUsu })
+            </td>
+        </tr>
+    }
+</table>

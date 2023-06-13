@@ -1,0 +1,24 @@
+create database dbApBanco;
+use dbApBanco;
+describe tbUsuario;
+create table tbUsuario
+(
+idUsu int primary key auto_increment,
+NomeUsu varchar(50) not null,
+Cargo varchar(50) not null,
+DataNasc datetime
+);
+ALTER TABLE tbUsuario
+CHANGE DataNasc DataNasc datetime not null;
+
+select * from 
+tbUsuario;
+
+
+insert into tbUsuario(NomeUsu, cargo, DataNasc)
+values('Akira', 'Ator', '2000/05/15'),
+       ('Gohan', 'Chefe', '2023/05/10'),
+       ('Fuleco', 'Chato', '2021/03/10');
+
+
+
